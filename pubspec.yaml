@@ -17,19 +17,39 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
+## Slidy Scripts 
+vars: 
+    clean: flutter clean
+    get: flutter pub get
+    runner: flutter pub run build_runner
+scripts: 
+    mobx_build: $runner build
+    mobx_watch: $clean & $get & $runner watch
+    mobx_build_clean: $clean & $get & $runner build --delete-conflicting-outputs
+
+
+
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  dio: ^3.0.10
+  flutter_mobx: ^1.1.0+2
+  mobx: ^1.2.1+4
+  flutter_modular: ^2.0.1
   flutter:
     sdk: flutter
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.0
 
 dev_dependencies:
+  mockito: any
+  modular_codegen: 2.0.0+1
+  mobx_codegen: ^1.1.2
+  build_runner: ^1.10.1
+  flutter_modular_annotations: any
   flutter_test:
     sdk: flutter
 
