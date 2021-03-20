@@ -14,4 +14,5 @@ abstract class _HomeControllerBase with Store {
   void increment() {
     value++;
   }
+
 }
