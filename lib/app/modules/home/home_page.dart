@@ -20,8 +20,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[
-        ],
+        children: <Widget>[],
       ),
     );
   }
