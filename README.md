@@ -1,16 +1,23 @@
-# film_app_lab
+<h1 align="center">Film App</h1>
+<p align="center">Aplicativo em desenvolvimento no lab de C206 - Engenharia de Software</p>
 
-A new Flutter project.
+-----
 
-## Getting Started
+Aplicativo desenvolvido nas aulas de C206 na linguagem Dart utilizando a ferramenta Flutter.
 
-This project is a starting point for a Flutter application.
+## Funcionalidades
+A aplicação conta com algumas funcionalidades a serem implementadas:
+- [ ] Pesquisar filme.
+- [ ] Listar os resutados da pesquisa.
+- [ ] Tela de detalhes do filme.
 
-A few resources to get you started if this is your first Flutter project:
+## Ferramentas
+- [Flutter](https://flutter.dev)
+- [VSCode](https://code.visualstudio.com)
+- [Slidy](https://github.com/Flutterando/slidy)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Bibliotecas
+- [Dio](https://pub.dev/packages/dio)
+- [Mobx](https://pub.dev/packages/mobx)
+- [Test](https://pub.dev/packages/test)
+- [Flutter Modular](https://pub.dev/packages/flutter_modular)
