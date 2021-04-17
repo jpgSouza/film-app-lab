@@ -1,31 +1,37 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
+import 'package:film_app_lab/app/modules/home/model/result_film_model.dart';
+import 'package:film_app_lab/app/modules/home/repositories/home_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:dio/dio.dart';
 
-import 'package:film_app_lab/app/modules/home/repositories/interfaces/home_repository_interface.dart';
+import '../../../utils/api/search_film_response.dart';
 
-class MockClient extends Mock implements Dio {}
+class DioMock extends Mock implements Dio {}
 
 void main() {
-  IHomeRepository repository;
-  // MockClient client;
-
-  setUp(() {
-    // client = MockClient();
-    // repository = HomeRepository(client);
-  });
+  final dio = DioMock();
+  final repository = HomeRepository(dio);
 
   group('HomeRepository Test', () {
-    //  test("First Test", () {
-    //    expect(repository, isInstanceOf<HomeRepository>());
-    //  });
+    test("First Test", () {
+      expect(repository, isInstanceOf<HomeRepository>());
+    });
 
-    test('returns a Post if the http call completes successfully', () async {
-      //    when(client.get('https://jsonplaceholder.typicode.com/posts/1'))
-      //        .thenAnswer((_) async =>
-      //            Response(data: {'title': 'Test'}, statusCode: 200));
-      //    Map<String, dynamic> data = await repository.fetchPost(client);
-      //    expect(data['title'], 'Test');
+    test("Should return a list of ResultFilmModel", () async {
+      when(dio.get(any, options: anyNamed("options"))).thenAnswer((_) async => Response(data: jsonDecode(searchFilmResponse), statusCode: 200));
+      final result = await repository.getFilmByName("Avengers");
+      expect(result, isA<List<ResultFilmModel>>());
+    });
+
+    test("Should return the correct response data", () async{
+      when(dio.get(any, options: anyNamed("options"))).thenAnswer((_) async => Response(data: jsonDecode(searchFilmResponse), statusCode: 200));
+      await repository.getFilmByName("name").then((value){
+        expect("Inception", value.first.title);
+        expect("https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@.jpg", value.first.image);
+        expect("tt1375666", value.first.id);
+      });
     });
   });
 }

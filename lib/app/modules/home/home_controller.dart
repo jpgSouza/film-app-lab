@@ -1,6 +1,10 @@
+import 'package:dartz/dartz.dart';
+import 'package:film_app_lab/app/modules/home/model/result_film_model.dart';
 import 'package:film_app_lab/app/shared/constants/error/error.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'repositories/home_repository.dart';
 
 part 'home_controller.g.dart';
 
@@ -10,15 +14,14 @@ class HomeController = _HomeControllerBase with _$HomeController;
 abstract class _HomeControllerBase with Store {
   //ESCOPO
   //final searchTextController = TextEditingController();
-  //final HomeRepository _repository;
-  //_HomeControllerBase(this._repository);
+  final HomeRepository _repository;
+  _HomeControllerBase(this._repository);
 
-  List<String> fetchData({String searchText}) {
-    if (searchText.isNotEmpty) {
-      return [""];
-    }else{
-      throw EmptyTextError();
+  Future<Either<FailureSearch, List<ResultFilmModel>>> fetchData(String searchText) async {
+    if (searchText.isNotEmpty || searchText != null) {
+      final result = await _repository.getFilmByName(searchText);
+      return Right(result);
     }
-    //_repository.getFilmeByName(searchText);
+    return Left(EmptyTextError());
   }
 }
