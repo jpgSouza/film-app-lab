@@ -1,3 +1,4 @@
+import 'package:film_app_lab/app/shared/constants/error/error.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -7,11 +8,17 @@ part 'home_controller.g.dart';
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
-  @observable
-  int value = 0;
+  //ESCOPO
+  //final searchTextController = TextEditingController();
+  //final HomeRepository _repository;
+  //_HomeControllerBase(this._repository);
 
-  @action
-  void increment() {
-    value++;
+  List<String> fetchData({String searchText}) {
+    if (searchText.isNotEmpty) {
+      return [""];
+    }else{
+      throw EmptyTextError();
+    }
+    //_repository.getFilmeByName(searchText);
   }
 }

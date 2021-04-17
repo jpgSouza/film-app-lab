@@ -64,6 +64,33 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
             ),
           ),
+          Container(
+            margin: EdgeInsets.only(
+              top: 60.0,
+              left: 40.0,
+              right: 40.0,
+            ),
+            child: Card(
+              elevation: 3.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14.0),
+              ),
+              child: ListTile(
+                onTap: () {},
+                title: Text(
+                  "Inception",
+                  style: TextStyle(
+                    fontSize: AppDimens.DEFAULT_FONT_SIZE,
+                    color: AppColors.BLUE,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.chevron_right,
+                  color: AppColors.BLUE,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
