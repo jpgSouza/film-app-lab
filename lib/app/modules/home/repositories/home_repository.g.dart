@@ -7,7 +7,7 @@ part of 'home_repository.dart';
 // **************************************************************************
 
 final $HomeRepository = BindInject(
-  (i) => HomeRepository(i.get<Dio>()),
+  (i) => HomeRepository(i<Dio>()),
   singleton: true,
   lazy: true,
 );
