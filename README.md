@@ -1,3 +1,5 @@
+[![Dart CI](https://github.com/jpgSouza/film-app-lab/actions/workflows/dart.yml/badge.svg?branch=master)](https://github.com/jpgSouza/film-app-lab/actions/workflows/dart.yml)
+
 <h1 align="center">Film App</h1>
 <p align="center">Aplicativo em desenvolvimento no lab de C206 - Engenharia de Software</p>
 
