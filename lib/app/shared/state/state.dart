@@ -1,0 +1,1 @@
+enum DataState {IDLE, LOADING, COMPLETED, ERROR}
